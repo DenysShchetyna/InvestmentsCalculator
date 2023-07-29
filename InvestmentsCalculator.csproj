@@ -101,9 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
-    <Compile Include="CoinmarketcapAPI.cs" />
     <Compile Include="DatabaseMethods.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
