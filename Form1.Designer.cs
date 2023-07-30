@@ -57,7 +57,7 @@
             this.groupBox_TokenDetailsCurrent = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label_Profit = new System.Windows.Forms.Label();
+            this.label_ProfitPerc = new System.Windows.Forms.Label();
             this.label_CurrentPrice = new System.Windows.Forms.Label();
             this.radioButton_apiCMC = new System.Windows.Forms.RadioButton();
             this.radioButton_apiWBT = new System.Windows.Forms.RadioButton();
@@ -69,6 +69,10 @@
             this.label_totalSellProfit = new System.Windows.Forms.Label();
             this.label_averageSellPrice = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label_TotalWorthNow = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label_ProfitUsd = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox_AddNewInvestment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Investments)).BeginInit();
             this.groupBox_TokenDetailsCurrent.SuspendLayout();
@@ -93,7 +97,7 @@
             this.textBox_Amount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Amount.Name = "textBox_Amount";
             this.textBox_Amount.Size = new System.Drawing.Size(148, 26);
-            this.textBox_Amount.TabIndex = 0;
+            this.textBox_Amount.TabIndex = 1;
             // 
             // textBox_PriceForOne
             // 
@@ -102,7 +106,7 @@
             this.textBox_PriceForOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_PriceForOne.Name = "textBox_PriceForOne";
             this.textBox_PriceForOne.Size = new System.Drawing.Size(148, 26);
-            this.textBox_PriceForOne.TabIndex = 0;
+            this.textBox_PriceForOne.TabIndex = 2;
             // 
             // label2
             // 
@@ -112,7 +116,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Ticker:";
             // 
             // label3
@@ -171,7 +175,7 @@
             this.groupBox_AddNewInvestment.Location = new System.Drawing.Point(17, 39);
             this.groupBox_AddNewInvestment.Name = "groupBox_AddNewInvestment";
             this.groupBox_AddNewInvestment.Size = new System.Drawing.Size(529, 204);
-            this.groupBox_AddNewInvestment.TabIndex = 2;
+            this.groupBox_AddNewInvestment.TabIndex = 0;
             this.groupBox_AddNewInvestment.TabStop = false;
             this.groupBox_AddNewInvestment.Text = "Add Invest";
             // 
@@ -187,7 +191,7 @@
             this.radioButton_Sell.Location = new System.Drawing.Point(436, 152);
             this.radioButton_Sell.Name = "radioButton_Sell";
             this.radioButton_Sell.Size = new System.Drawing.Size(70, 30);
-            this.radioButton_Sell.TabIndex = 3;
+            this.radioButton_Sell.TabIndex = 5;
             this.radioButton_Sell.Text = "SELL";
             this.radioButton_Sell.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton_Sell.UseVisualStyleBackColor = true;
@@ -205,7 +209,7 @@
             this.radioButton_Buy.Location = new System.Drawing.Point(358, 152);
             this.radioButton_Buy.Name = "radioButton_Buy";
             this.radioButton_Buy.Size = new System.Drawing.Size(70, 30);
-            this.radioButton_Buy.TabIndex = 3;
+            this.radioButton_Buy.TabIndex = 4;
             this.radioButton_Buy.TabStop = true;
             this.radioButton_Buy.Text = "BUY";
             this.radioButton_Buy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,7 +223,7 @@
             this.button_InvestAdd.Location = new System.Drawing.Point(389, 28);
             this.button_InvestAdd.Name = "button_InvestAdd";
             this.button_InvestAdd.Size = new System.Drawing.Size(117, 26);
-            this.button_InvestAdd.TabIndex = 2;
+            this.button_InvestAdd.TabIndex = 6;
             this.button_InvestAdd.Text = "ADD";
             this.button_InvestAdd.UseVisualStyleBackColor = true;
             this.button_InvestAdd.Click += new System.EventHandler(this.button_InvestAdd_Click);
@@ -242,7 +246,7 @@
             this.textBox_Comment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Comment.Name = "textBox_Comment";
             this.textBox_Comment.Size = new System.Drawing.Size(148, 26);
-            this.textBox_Comment.TabIndex = 0;
+            this.textBox_Comment.TabIndex = 3;
             // 
             // dataGridView_Investments
             // 
@@ -264,7 +268,7 @@
             this.button_UpdateDistinctTickersFromDb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_UpdateDistinctTickersFromDb.Location = new System.Drawing.Point(653, 39);
             this.button_UpdateDistinctTickersFromDb.Name = "button_UpdateDistinctTickersFromDb";
-            this.button_UpdateDistinctTickersFromDb.Size = new System.Drawing.Size(117, 26);
+            this.button_UpdateDistinctTickersFromDb.Size = new System.Drawing.Size(117, 37);
             this.button_UpdateDistinctTickersFromDb.TabIndex = 2;
             this.button_UpdateDistinctTickersFromDb.Text = "Update";
             this.button_UpdateDistinctTickersFromDb.UseVisualStyleBackColor = true;
@@ -285,9 +289,9 @@
             this.button_TickerFilterReset.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button_TickerFilterReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_TickerFilterReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_TickerFilterReset.Location = new System.Drawing.Point(653, 71);
+            this.button_TickerFilterReset.Location = new System.Drawing.Point(653, 82);
             this.button_TickerFilterReset.Name = "button_TickerFilterReset";
-            this.button_TickerFilterReset.Size = new System.Drawing.Size(117, 26);
+            this.button_TickerFilterReset.Size = new System.Drawing.Size(117, 37);
             this.button_TickerFilterReset.TabIndex = 2;
             this.button_TickerFilterReset.Text = "Reset";
             this.button_TickerFilterReset.UseVisualStyleBackColor = true;
@@ -310,7 +314,7 @@
             // 
             this.label_TotalAmount.AutoSize = true;
             this.label_TotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_TotalAmount.Location = new System.Drawing.Point(130, 33);
+            this.label_TotalAmount.Location = new System.Drawing.Point(160, 35);
             this.label_TotalAmount.Name = "label_TotalAmount";
             this.label_TotalAmount.Size = new System.Drawing.Size(14, 20);
             this.label_TotalAmount.TabIndex = 6;
@@ -320,7 +324,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(17, 33);
+            this.label1.Location = new System.Drawing.Point(8, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 6;
@@ -330,17 +334,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(17, 97);
+            this.label5.Location = new System.Drawing.Point(8, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.Size = new System.Drawing.Size(136, 20);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Average Price: ";
+            this.label5.Text = "Average Price [$]: ";
             // 
             // label_AveragePrice
             // 
             this.label_AveragePrice.AutoSize = true;
             this.label_AveragePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_AveragePrice.Location = new System.Drawing.Point(130, 97);
+            this.label_AveragePrice.Location = new System.Drawing.Point(160, 95);
             this.label_AveragePrice.Name = "label_AveragePrice";
             this.label_AveragePrice.Size = new System.Drawing.Size(14, 20);
             this.label_AveragePrice.TabIndex = 6;
@@ -350,7 +354,7 @@
             // 
             this.label_TotalPrice.AutoSize = true;
             this.label_TotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_TotalPrice.Location = new System.Drawing.Point(130, 65);
+            this.label_TotalPrice.Location = new System.Drawing.Point(160, 65);
             this.label_TotalPrice.Name = "label_TotalPrice";
             this.label_TotalPrice.Size = new System.Drawing.Size(14, 20);
             this.label_TotalPrice.TabIndex = 6;
@@ -360,19 +364,23 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(17, 65);
+            this.label8.Location = new System.Drawing.Point(8, 65);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 20);
+            this.label8.Size = new System.Drawing.Size(134, 20);
             this.label8.TabIndex = 6;
-            this.label8.Text = "Total $:";
+            this.label8.Text = "Total Invested [$]:";
             // 
             // groupBox_TokenDetailsCurrent
             // 
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label5);
+            this.groupBox_TokenDetailsCurrent.Controls.Add(this.label15);
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label9);
+            this.groupBox_TokenDetailsCurrent.Controls.Add(this.label12);
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label7);
+            this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_ProfitUsd);
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label8);
-            this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_Profit);
+            this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_ProfitPerc);
+            this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_TotalWorthNow);
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_TotalAmount);
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_CurrentPrice);
             this.groupBox_TokenDetailsCurrent.Controls.Add(this.label_AveragePrice);
@@ -381,7 +389,7 @@
             this.groupBox_TokenDetailsCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox_TokenDetailsCurrent.Location = new System.Drawing.Point(841, 275);
             this.groupBox_TokenDetailsCurrent.Name = "groupBox_TokenDetailsCurrent";
-            this.groupBox_TokenDetailsCurrent.Size = new System.Drawing.Size(229, 196);
+            this.groupBox_TokenDetailsCurrent.Size = new System.Drawing.Size(252, 265);
             this.groupBox_TokenDetailsCurrent.TabIndex = 7;
             this.groupBox_TokenDetailsCurrent.TabStop = false;
             this.groupBox_TokenDetailsCurrent.Text = "-";
@@ -390,37 +398,37 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(17, 162);
+            this.label9.Location = new System.Drawing.Point(8, 185);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.Size = new System.Drawing.Size(85, 20);
             this.label9.TabIndex = 6;
-            this.label9.Text = "Profit?:";
+            this.label9.Text = "Profit? [%]:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(17, 129);
+            this.label7.Location = new System.Drawing.Point(8, 125);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 20);
+            this.label7.Size = new System.Drawing.Size(126, 20);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Current Price:";
+            this.label7.Text = "Current Price [$]:";
             // 
-            // label_Profit
+            // label_ProfitPerc
             // 
-            this.label_Profit.AutoSize = true;
-            this.label_Profit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Profit.Location = new System.Drawing.Point(130, 162);
-            this.label_Profit.Name = "label_Profit";
-            this.label_Profit.Size = new System.Drawing.Size(14, 20);
-            this.label_Profit.TabIndex = 6;
-            this.label_Profit.Text = "-";
+            this.label_ProfitPerc.AutoSize = true;
+            this.label_ProfitPerc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_ProfitPerc.Location = new System.Drawing.Point(160, 185);
+            this.label_ProfitPerc.Name = "label_ProfitPerc";
+            this.label_ProfitPerc.Size = new System.Drawing.Size(14, 20);
+            this.label_ProfitPerc.TabIndex = 6;
+            this.label_ProfitPerc.Text = "-";
             // 
             // label_CurrentPrice
             // 
             this.label_CurrentPrice.AutoSize = true;
             this.label_CurrentPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_CurrentPrice.Location = new System.Drawing.Point(130, 129);
+            this.label_CurrentPrice.Location = new System.Drawing.Point(160, 125);
             this.label_CurrentPrice.Name = "label_CurrentPrice";
             this.label_CurrentPrice.Size = new System.Drawing.Size(14, 20);
             this.label_CurrentPrice.TabIndex = 6;
@@ -435,9 +443,9 @@
             this.radioButton_apiCMC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.radioButton_apiCMC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton_apiCMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton_apiCMC.Location = new System.Drawing.Point(6, 23);
+            this.radioButton_apiCMC.Location = new System.Drawing.Point(6, 25);
             this.radioButton_apiCMC.Name = "radioButton_apiCMC";
-            this.radioButton_apiCMC.Size = new System.Drawing.Size(111, 50);
+            this.radioButton_apiCMC.Size = new System.Drawing.Size(111, 35);
             this.radioButton_apiCMC.TabIndex = 3;
             this.radioButton_apiCMC.Text = "CMC";
             this.radioButton_apiCMC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -453,9 +461,9 @@
             this.radioButton_apiWBT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Khaki;
             this.radioButton_apiWBT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton_apiWBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton_apiWBT.Location = new System.Drawing.Point(6, 79);
+            this.radioButton_apiWBT.Location = new System.Drawing.Point(6, 68);
             this.radioButton_apiWBT.Name = "radioButton_apiWBT";
-            this.radioButton_apiWBT.Size = new System.Drawing.Size(111, 50);
+            this.radioButton_apiWBT.Size = new System.Drawing.Size(111, 35);
             this.radioButton_apiWBT.TabIndex = 3;
             this.radioButton_apiWBT.TabStop = true;
             this.radioButton_apiWBT.Text = "WBT";
@@ -466,9 +474,9 @@
             // 
             this.groupBox_apiSelector.Controls.Add(this.radioButton_apiCMC);
             this.groupBox_apiSelector.Controls.Add(this.radioButton_apiWBT);
-            this.groupBox_apiSelector.Location = new System.Drawing.Point(647, 107);
+            this.groupBox_apiSelector.Location = new System.Drawing.Point(647, 129);
             this.groupBox_apiSelector.Name = "groupBox_apiSelector";
-            this.groupBox_apiSelector.Size = new System.Drawing.Size(123, 136);
+            this.groupBox_apiSelector.Size = new System.Drawing.Size(123, 114);
             this.groupBox_apiSelector.TabIndex = 8;
             this.groupBox_apiSelector.TabStop = false;
             this.groupBox_apiSelector.Text = "API Selector";
@@ -482,7 +490,7 @@
             this.groupBox_TokenDetailsSold.Controls.Add(this.label_averageSellPrice);
             this.groupBox_TokenDetailsSold.Controls.Add(this.label19);
             this.groupBox_TokenDetailsSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_TokenDetailsSold.Location = new System.Drawing.Point(1076, 275);
+            this.groupBox_TokenDetailsSold.Location = new System.Drawing.Point(1123, 275);
             this.groupBox_TokenDetailsSold.Name = "groupBox_TokenDetailsSold";
             this.groupBox_TokenDetailsSold.Size = new System.Drawing.Size(309, 196);
             this.groupBox_TokenDetailsSold.TabIndex = 7;
@@ -549,6 +557,46 @@
             this.label19.TabIndex = 6;
             this.label19.Text = "Tokens Sold:";
             // 
+            // label_TotalWorthNow
+            // 
+            this.label_TotalWorthNow.AutoSize = true;
+            this.label_TotalWorthNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_TotalWorthNow.Location = new System.Drawing.Point(160, 155);
+            this.label_TotalWorthNow.Name = "label_TotalWorthNow";
+            this.label_TotalWorthNow.Size = new System.Drawing.Size(14, 20);
+            this.label_TotalWorthNow.TabIndex = 6;
+            this.label_TotalWorthNow.Text = "-";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(8, 155);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(151, 20);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Total Worth Now [$]:";
+            // 
+            // label_ProfitUsd
+            // 
+            this.label_ProfitUsd.AutoSize = true;
+            this.label_ProfitUsd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_ProfitUsd.Location = new System.Drawing.Point(160, 214);
+            this.label_ProfitUsd.Name = "label_ProfitUsd";
+            this.label_ProfitUsd.Size = new System.Drawing.Size(14, 20);
+            this.label_ProfitUsd.TabIndex = 6;
+            this.label_ProfitUsd.Text = "-";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(8, 214);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(80, 20);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Profit? [$]:";
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -607,7 +655,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label_CurrentPrice;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label_Profit;
+        private System.Windows.Forms.Label label_ProfitPerc;
         private System.Windows.Forms.RadioButton radioButton_Sell;
         private System.Windows.Forms.RadioButton radioButton_Buy;
         private System.Windows.Forms.Label label6;
@@ -622,6 +670,10 @@
         private System.Windows.Forms.Label label_totalSellProfit;
         private System.Windows.Forms.Label label_averageSellPrice;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label_ProfitUsd;
+        private System.Windows.Forms.Label label_TotalWorthNow;
     }
 }
 

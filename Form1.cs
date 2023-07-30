@@ -337,20 +337,24 @@ namespace InvestmentsCalculator
                     label_TotalAmount.Text = tokenMetrics.Amount.ToString();
                     label_TotalPrice.Text = tokenMetrics.TotalInvested.ToString();
                     label_AveragePrice.Text = tokenMetrics.AveragePrice.ToString();
-                    label_Profit.Text = tokenMetrics.Profit.ToString() + "%";
+                    label_ProfitPerc.Text = tokenMetrics.ProfitPerc.ToString() + "%";
                     label_CurrentPrice.Text = tokenMetrics.CurrentPrice.ToString();
+                    label_TotalWorthNow.Text = tokenMetrics.TotalWorthNow.ToString();
+                    label_ProfitUsd.Text = tokenMetrics.ProfitUsd.ToString();
 
                     label_TokensSold.Text = tokenMetrics.TokensSold.ToString();
                     label_averageSellPrice.Text = tokenMetrics.AverageSellPrice.ToString();
                     label_totalSellProfit.Text = tokenMetrics.TotalSellProfit.ToString();
 
-                    if (tokenMetrics.Profit > 0)
+                    if (tokenMetrics.ProfitPerc > 0)
                     {
-                        label_Profit.BackColor = Color.Green;
+                        label_ProfitPerc.BackColor = Color.Green;
+                        label_ProfitUsd.BackColor = Color.Green;
                     }
                     else
                     {
-                        label_Profit.BackColor = Color.Red;
+                        label_ProfitPerc.BackColor = Color.Red;
+                        label_ProfitUsd.BackColor = Color.Red;
                     }
                 }
 
@@ -419,20 +423,24 @@ namespace InvestmentsCalculator
                     label_TotalAmount.Text = tokenMetrics.Amount.ToString();
                     label_TotalPrice.Text = tokenMetrics.TotalInvested.ToString();
                     label_AveragePrice.Text = tokenMetrics.AveragePrice.ToString();
-                    label_Profit.Text = tokenMetrics.Profit.ToString() + "%";
+                    label_ProfitPerc.Text = tokenMetrics.ProfitPerc.ToString() + "%";
                     label_CurrentPrice.Text = tokenMetrics.CurrentPrice.ToString();
+                    label_TotalWorthNow.Text = tokenMetrics.TotalWorthNow.ToString();
+                    label_ProfitUsd.Text = tokenMetrics.ProfitUsd.ToString();
 
                     label_TokensSold.Text = tokenMetrics.TokensSold.ToString();
                     label_averageSellPrice.Text = tokenMetrics.AverageSellPrice.ToString();
                     label_totalSellProfit.Text = tokenMetrics.TotalSellProfit.ToString();
 
-                    if (tokenMetrics.Profit > 0)
+                    if (tokenMetrics.ProfitPerc > 0)
                     {
-                        label_Profit.BackColor = Color.Green;
+                        label_ProfitPerc.BackColor = Color.Green;
+                        label_ProfitUsd.BackColor = Color.Green;
                     }
                     else
                     {
-                        label_Profit.BackColor = Color.Red;
+                        label_ProfitPerc.BackColor = Color.Red;
+                        label_ProfitUsd.BackColor = Color.Red;
                     }
                 }
             }
@@ -447,10 +455,10 @@ namespace InvestmentsCalculator
             label_TotalAmount.Text = "-";
             label_TotalPrice.Text = "-";
             label_AveragePrice.Text = "-";
-            label_Profit.Text = "-";
+            label_ProfitPerc.Text = "-";
             label_CurrentPrice.Text = "-";
-            label_Profit.Text = "-";
-            label_Profit.BackColor = Color.DarkGray;
+            label_ProfitPerc.Text = "-";
+            label_ProfitPerc.BackColor = Color.DarkGray;
             label_TokensSold.Text = "-";
             label_averageSellPrice.Text = "-";
             label_totalSellProfit.Text = "-";

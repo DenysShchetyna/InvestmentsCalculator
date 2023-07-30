@@ -34,19 +34,28 @@ namespace InvestmentsCalculator
                         allTotalPricesSold.Add(invest.TotalPrice);
                     }
                 }
-
-                tokenResultsMetrics.Amount = Math.Round(allAmountsBought.Sum(), 5);
-                tokenResultsMetrics.TotalInvested = Math.Round(allTotalPricesBought.Sum(), 5);
-                tokenResultsMetrics.AveragePrice = Math.Round((tokenResultsMetrics.TotalInvested / tokenResultsMetrics.Amount), 3);
-                tokenResultsMetrics.CurrentPrice = tokenPrices.FirstOrDefault(symbol => symbol.Symbol == ticker).Price;
-                tokenResultsMetrics.Profit = Math.Round((tokenResultsMetrics.CurrentPrice / tokenResultsMetrics.AveragePrice) - 1, 3) * 100;
-                tokenResultsMetrics.Amount = Math.Round(allAmountsBought.Sum() - allAmountsSold.Sum(), 5);
-                tokenResultsMetrics.TotalInvested = Math.Round(allTotalPricesBought.Sum() - (allAmountsSold.Sum() * tokenResultsMetrics.AveragePrice), 5);
-
+                try
+                {
+                    tokenResultsMetrics.Amount = Math.Round(allAmountsBought.Sum(), 5);
+                    tokenResultsMetrics.TotalInvested = Math.Round(allTotalPricesBought.Sum(), 5);
+                    tokenResultsMetrics.AveragePrice = Math.Round((tokenResultsMetrics.TotalInvested / tokenResultsMetrics.Amount), 3);
+                    tokenResultsMetrics.CurrentPrice = tokenPrices.FirstOrDefault(symbol => symbol.Symbol == ticker).Price;
+                    tokenResultsMetrics.ProfitPerc = Math.Round((tokenResultsMetrics.CurrentPrice / tokenResultsMetrics.AveragePrice) - 1, 3) * 100;
+                    tokenResultsMetrics.Amount = Math.Round(allAmountsBought.Sum() - allAmountsSold.Sum(), 5);
+                    tokenResultsMetrics.TotalInvested = Math.Round(allTotalPricesBought.Sum() - (allAmountsSold.Sum() * tokenResultsMetrics.AveragePrice), 5);
+                    tokenResultsMetrics.TotalWorthNow = Math.Round(tokenResultsMetrics.Amount * tokenResultsMetrics.CurrentPrice, 5);
+                    tokenResultsMetrics.ProfitUsd = Math.Round((tokenResultsMetrics.TotalWorthNow - tokenResultsMetrics.TotalInvested), 5);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please select another api for this token.");
+                }
 
                 tokenResultsMetrics.TokensSold = Math.Round(allAmountsSold.Sum(), 5);
-                tokenResultsMetrics.TotalSellProfit = Math.Round(allTotalPricesSold.Sum(), 5);
-                tokenResultsMetrics.AverageSellPrice = Math.Round((tokenResultsMetrics.TotalSellProfit / tokenResultsMetrics.TokensSold), 3);
+                double totalUsdFormSellings = Math.Round(allTotalPricesSold.Sum(), 5);
+
+                tokenResultsMetrics.TotalSellProfit = totalUsdFormSellings - Math.Round((tokenResultsMetrics.TokensSold * tokenResultsMetrics.AveragePrice), 5);
+                tokenResultsMetrics.AverageSellPrice = Math.Round((totalUsdFormSellings / tokenResultsMetrics.TokensSold), 3);
             }
             catch (Exception ex)
             {
