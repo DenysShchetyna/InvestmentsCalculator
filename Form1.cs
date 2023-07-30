@@ -22,8 +22,7 @@ namespace InvestmentsCalculator
     public partial class MainForm : System.Windows.Forms.Form
     {
         private DataTable DataTable = new DataTable();
-        static string apiKeyCMC = "055f3070-f685-47c2-885e-b9872c726f5d";
-        static string apiKeyWBT = "8539d91f0126e64865b9167e3910ad62";
+
         private const string apiUrlCMC = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         private const string apiUrlWBT = " https://whitebit.com/api/v4/public/ticker";
         private HttpClient httpClientCMC = new HttpClient();
@@ -302,7 +301,7 @@ namespace InvestmentsCalculator
             {
                 // Prepare the API request.
                 httpClientCMC.DefaultRequestHeaders.Clear();
-                httpClientCMC.DefaultRequestHeaders.Add("X-CMC_PRO_API_KEY", apiKeyCMC);
+                httpClientCMC.DefaultRequestHeaders.Add("X-CMC_PRO_API_KEY", GlobalVariables.ApiKeyCMC);
 
                 // Perform the API request.
                 HttpResponseMessage response = await httpClientCMC.GetAsync(apiUrlCMC);
@@ -368,7 +367,7 @@ namespace InvestmentsCalculator
             {
                 // Prepare the API request.
                 httpClientWBT.DefaultRequestHeaders.Clear();
-                httpClientWBT.DefaultRequestHeaders.Add("X-TXC-APIKEY", apiKeyWBT);
+                httpClientWBT.DefaultRequestHeaders.Add("X-TXC-APIKEY", GlobalVariables.ApiKeyWBT);
 
                 // Perform the API request.
                 HttpResponseMessage response = await httpClientCMC.GetAsync(apiUrlWBT);

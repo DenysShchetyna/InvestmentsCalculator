@@ -9,5 +9,7 @@ namespace InvestmentsCalculator
     public static class GlboalVariables
     {
         public static string ConnectionString = "Data Source=D:\\Crypto\\Crypto.db";
+        public static string ApiKeyCMC = "";
+        public static string ApiKeyWBT = "";
     }
 }

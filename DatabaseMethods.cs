@@ -18,7 +18,7 @@ namespace InvestmentsCalculator
             {
                 string insertOrder = "Insert into Investments (Date,Ticker,Amount,PriceForOne,TotalPrice,BuySell,Comment) Values (@Date,@Ticker,@Amount,@PriceForOne,@TotalPrice,@BuySell,@Comment)";
 
-                using (SQLiteConnection cnn = new SQLiteConnection(GlboalVariables.ConnectionString))
+                using (SQLiteConnection cnn = new SQLiteConnection(GlobalVariables.ConnectionString))
                 {
                     cnn.Execute(insertOrder, model);
                 }
@@ -36,7 +36,7 @@ namespace InvestmentsCalculator
         {
             bool connectionOK = false;
             string tableCreationOrder = "CREATE TABLE if not exists \"Investments\" (\r\n\t\"Date\"\tTEXT NOT NULL UNIQUE,\r\n\t\"Ticker\"\tTEXT NOT NULL,\r\n\t\"Amount\"\tREAL NOT NULL,\r\n\t\"PriceForOne\"\tREAL NOT NULL,\r\n\t\"TotalPrice\"\tREAL NOT NULL,\r\n\t\"BuySell\"\tTEXT NOT NULL\r\n, \"Comment\"\tTEXT)";
-            using (SQLiteConnection cnn = new SQLiteConnection(GlboalVariables.ConnectionString))
+            using (SQLiteConnection cnn = new SQLiteConnection(GlobalVariables.ConnectionString))
             {
                 try
                 {
@@ -75,7 +75,7 @@ namespace InvestmentsCalculator
                     getOrder = $"select * from Investments where Ticker == '{tickerSpecification}'";
                 }
 
-                using (SQLiteConnection cnn = new SQLiteConnection(GlboalVariables.ConnectionString))
+                using (SQLiteConnection cnn = new SQLiteConnection(GlobalVariables.ConnectionString))
                 {
                     investments = cnn.Query<InvestmentModel>(getOrder).ToList();
                 }
@@ -91,7 +91,7 @@ namespace InvestmentsCalculator
         {
             try
             {
-                using (SQLiteConnection connection = new SQLiteConnection(GlboalVariables.ConnectionString))
+                using (SQLiteConnection connection = new SQLiteConnection(GlobalVariables.ConnectionString))
                 {
                     connection.Open();
 
